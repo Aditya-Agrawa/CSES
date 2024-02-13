@@ -1,0 +1,39 @@
+#include<bits/stdc++.h>
+#define ll long long
+#define ull unsigned long long
+ll mod=1000000007;
+using namespace std;
+ 
+ 
+ 
+ 
+ 
+void solve()
+{  
+  ull k; //chessboard size
+  cin>>k;
+  for(ull i=1;i<=k;i++){
+   ull total=((i*i)*((i*i)-1));//total number of ways we can place tow knights
+    //now we are calculating where we can not place knights
+    ull notPoss=4*2+8*3+16*(i-4)+16+6*4*(i-4)+8*((i-4)*(i-4));
+    cout<<((total-notPoss)>>1)<<"\n";
+  }
+
+}
+ 
+int main()
+{
+ 
+  #ifndef ONLINE_JUDGE
+  clock_t tStart = clock();
+  freopen("input.txt","r",stdin); //can need to change file . this one for taking input
+  freopen("output.txt","w",stdout); // this one for output
+  #endif
+  ios_base::sync_with_stdio(false);
+  cin.tie(0);cout.tie(0);
+  solve();
+  #ifndef ONLINE_JUDGE
+  fprintf(stderr, "\n>> Runtime: %.10fs\n", (double) (clock() - tStart) / CLOCKS_PER_SEC); // this line gives your code runtime
+  #endif
+  return 0;
+}
